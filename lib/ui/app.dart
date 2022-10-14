@@ -1,3 +1,5 @@
+import 'package:carrito_getx_01/ui/auth/login.dart';
+import 'package:carrito_getx_01/ui/pages/carrito.dart';
 import 'package:carrito_getx_01/ui/pages/productos.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,10 +9,15 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return GetMaterialApp(
       title: 'Carritos de Compras',
       debugShowCheckedModeBanner: false,
-      home: Productos(),
+      routes: {
+        '/productos': (context) => const Productos(),
+        '/carrito': (context) => const Carrito(),
+        '/login': (context) => const Login()
+      },
+      home: const Login(),
     );
   }
 }

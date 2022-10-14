@@ -1,6 +1,8 @@
-import 'package:carrito_getx_01/ui/domain/controlador/controlcarrito.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../domain/controlador/controlcarrito.dart';
 
 class Carrito extends StatelessWidget {
   const Carrito({Key? key}) : super(key: key);
