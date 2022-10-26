@@ -4,6 +4,8 @@ import 'package:carrito_getx_01/ui/pages/productos.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'authf/loginf.dart';
+
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
 
@@ -15,7 +17,8 @@ class App extends StatelessWidget {
       routes: {
         '/productos': (context) => const Productos(),
         '/carrito': (context) => const Carrito(),
-        '/login': (context) => const Login()
+        '/login': (context) => const Login(),
+        '/loginf': (context) => const LoginF()
       },
       home: const Login(),
     );
