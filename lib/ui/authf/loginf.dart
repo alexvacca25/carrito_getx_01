@@ -43,10 +43,40 @@ class _LoginFState extends State<LoginF> {
                 IconButton(
                     onPressed: () {
                       controlu
+                          .ingresarEmail(controluser.text, controlpasswd.text)
+                          .then((value) {
+                        if (controlu.emailf != "Sin Registro") {
+                          Get.offAllNamed('/listararticulos');
+                        } else {
+                          Get.showSnackbar(const GetSnackBar(
+                            title: 'Validacion de Usuarios',
+                            message: 'Error desde la validacion',
+                            icon: Icon(Icons.person_add),
+                            duration: Duration(seconds: 4),
+                            backgroundColor: Color.fromARGB(255, 190, 185, 185),
+                          ));
+                        }
+                      }).catchError((onerror) {
+                        Get.showSnackbar(const GetSnackBar(
+                          title: 'Validacion de Usuarios',
+                          message: 'Error desde la Excepcion',
+                          icon: Icon(Icons.person_add),
+                          duration: Duration(seconds: 4),
+                          backgroundColor: Colors.red,
+                        ));
+                      });
+                    },
+                    icon: const Icon(Icons.login)),
+                const SizedBox(
+                  width: 20,
+                ),
+                IconButton(
+                    onPressed: () {
+                      controlu
                           .registrarEmail(controluser.text, controlpasswd.text)
                           .then((value) {
                         if (controlu.emailf != "Sin Registro") {
-                          Get.offAllNamed('/productos');
+                          Get.offAllNamed('/listararticulos');
                         } else {
                           Get.showSnackbar(const GetSnackBar(
                             title: 'Validacion de Usuarios',
@@ -66,12 +96,7 @@ class _LoginFState extends State<LoginF> {
                         ));
                       });
                     },
-                    icon: const Icon(Icons.login)),
-                const SizedBox(
-                  width: 20,
-                ),
-                IconButton(
-                    onPressed: () {}, icon: const Icon(Icons.app_registration))
+                    icon: const Icon(Icons.app_registration))
               ],
             )
           ]),
